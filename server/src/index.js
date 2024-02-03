@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 
+const path = require('path');
+
 //* add dotenv and config.env
 const dotenv = require('dotenv');
 //? add path to config.env
@@ -25,8 +27,8 @@ console.log("user connected: ", socket.id);
 //io.on('connect', (socket) => {
 //  console.log("socket: ", socket);
 //});
-
-app.use(express.static("client"));
+const clientPath = path.join(__dirname, "client");
+app.use(express.static({clientPath}));
 
 
 const port = process.env.PORT || 5000;
