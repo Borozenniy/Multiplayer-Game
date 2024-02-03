@@ -9,7 +9,7 @@ function App() {
 
   useEffect(() => {
      // Устанавливаем соединение с сервером
-    const socket = io('http://localhost:5000');
+    const socket = io('https://multiplayer-game-production-7342.up.railway.app/');
     
     // Обработчик события
     socket.on('message', () => {
