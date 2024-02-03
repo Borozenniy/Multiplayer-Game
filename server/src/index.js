@@ -28,6 +28,26 @@ io.on('connect', (socket) => {
 console.log("user connected: ", socket.id);
 });
 
+io.on('connection', (socket) => {
+  console.log('A user connected');
+
+  // Отправить сообщение всем подключенным клиентам
+  io.emit('chatMessage', 'Welcome to the chat!');
+});
+io.on('connection', (socket) => {
+  console.log('A user connected');
+
+  // Обработка события от клиента
+  socket.on('clientEvent', (data) => {
+    console.log('Received data from client:', data);
+
+    // Отправить ответ клиенту
+    socket.emit('serverResponse', 'Data received on the server');
+    
+    io.emit('chatMessage', 'Welcome to the chat!')
+  });
+});
+
 //io.on('connect', (socket) => {
 //  console.log("socket: ", socket);
 //});

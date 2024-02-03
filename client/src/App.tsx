@@ -7,9 +7,13 @@ import './App.css'
 function App() {
   const [count, setCount] = useState(0)
 
+  
   useEffect(() => {
      // Устанавливаем соединение с сервером
     const socket = io('http://localhost:5000');
+    socket.on('chatMessage', (message) => {
+      console.log('Received message:', message);
+    });
     
     // Обработчик события
     socket.on('message', () => {
