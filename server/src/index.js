@@ -18,10 +18,10 @@ const httpServer = createServer(app)
 //? listener will be on httpServer
 const io = new Server(httpServer, {
   //
-  сors: {
-    origin: "https://multiplayer-game-production-7342.up.railway.app",
-    methods: ["GET", "POST"],
-  },
+  //сors: {
+  //  origin: "https://multiplayer-game-production-7342.up.railway.app",
+  //  methods: ["GET", "POST"],
+  //},
 });
 
 io.on('connect', (socket) => {
