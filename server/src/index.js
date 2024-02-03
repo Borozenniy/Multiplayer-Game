@@ -18,10 +18,10 @@ const httpServer = createServer(app)
 //? listener will be on httpServer
 const io = new Server(httpServer, {
   //
-  //сors: {
-  //  origin: "https://multiplayer-game-production-7342.up.railway.app",
-  //  methods: ["GET", "POST"],
-  //},
+  cors: {
+    origin: "http://localhost:5173",
+    methods: ["GET", "POST"],
+  },
 });
 
 io.on('connect', (socket) => {
@@ -31,8 +31,12 @@ console.log("user connected: ", socket.id);
 //io.on('connect', (socket) => {
 //  console.log("socket: ", socket);
 //});
-const clientPath = path.join(__dirname, "public");
-app.use(express.static("../public"));
+/*
+* Для использования статических файлов
+
+const clientPath = path.join(__dirname, "../public");
+app.use(express.static(''));
+*/
 
 
 const port = process.env.PORT || 5000;
