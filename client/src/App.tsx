@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { io } from 'socket.io-client';
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -6,6 +7,27 @@ import './App.css'
 function App() {
   const [count, setCount] = useState(0)
 
+  useEffect(() => {
+     // Устанавливаем соединение с сервером
+    const socket = io('http://localhost:5000');
+    
+    // Обработчик события
+    socket.on('message', () => {
+      console.log('Connected to server(client side')
+    });
+
+    //Отправляем сообщение на сервер 
+    socket.emit('client-message', 'Hello from client');
+
+    // Обработчик события от сервера
+    socket.on('serverMessage', (data): void => {
+      console.log('Message from server: ', data)
+    });
+
+    return () => {
+      socket.disconnect();
+    }
+  }, [])
   return (
     <>
       <div>
