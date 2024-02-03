@@ -26,7 +26,7 @@ console.log("user connected: ", socket.id);
 //  console.log("socket: ", socket);
 //});
 
-app.use(express.static("public"));
+app.use(express.static("client"));
 
 
 const port = process.env.PORT || 5000;
