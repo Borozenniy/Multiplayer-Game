@@ -32,7 +32,7 @@ console.log("user connected: ", socket.id);
 //  console.log("socket: ", socket);
 //});
 const clientPath = path.join(__dirname, "public");
-app.use(express.static('public'));
+app.use(express.static("../public"));
 
 
 const port = process.env.PORT || 5000;
