@@ -25,7 +25,8 @@ io.on('connect', (socket) => {
 
 app.use(express.static("public"))
 
-const port = process.env.PORT || 5000;
+//const port = process.env.PORT || 5000;
+const port = 5000;
 httpServer.listen(port, () => {
   console.log(`Server is running on port ${port}`)
 })
