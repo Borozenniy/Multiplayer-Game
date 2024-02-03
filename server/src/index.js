@@ -31,7 +31,7 @@ console.log("user connected: ", socket.id);
 //io.on('connect', (socket) => {
 //  console.log("socket: ", socket);
 //});
-const clientPath = path.join(__dirname, "client");
+const clientPath = path.join(__dirname, "public");
 app.use(express.static({clientPath}));
 
 
